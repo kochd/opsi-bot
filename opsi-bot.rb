@@ -10,7 +10,8 @@ bot = Cinch::Bot.new do
   end
 
   on :message, /\b#{nick}/i do |m|
-    m.reply "Well i am just a bot, but you can improve me. Just fork me on github"
+    m.reply "Well i am just a bot, but you can improve me."
+    m.reply "Just fork me or edit my files in your browser on github"
     m.reply "https://github.com/kochd/opsi-bot/tree/master)"
   end
 
