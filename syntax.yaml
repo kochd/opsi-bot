@@ -1,0 +1,58 @@
+encoding:
+  syntax: enconding=<encoding>
+  linux: true
+  windows: true
+  since: 4.11.4.1
+  description:
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-encoding'
+
+LogLevel:
+  deprecated: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-loglevel'
+  description:
+    - The old function LogLevel= is deprecated since opsi-winst/opsi-script version 4.10.3. For backward compatibility reasons Loglevels ste by this old function will be increased by 4 before they are used.
+    - Use SetLogLevel instead
+
+SetLogLevel:
+  linux: true
+  windows: true
+  syntax: SetLogLevel=<number> or SetLogLevel=<string>
+  default: 6
+  description:
+    - The number can be given as an integer value or as a string expression (cf. section 6.3). In the second case, opsi-winst/opsi-script tries to evaluate the string expression as a number. There exist ten levels from 0 up to 9.
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-loglevel'
+
+ExitOnError:
+  syntax: ExitOnError=<boolean value>
+  default: false
+  linux: true
+  windows: true
+  description:
+    - This statement defines if the script execution shall terminate when an error occurs.
+    - If the value is true or yes the program will stop execution, otherwise errors are just logged
+
+FatalOnSyntaxError:
+  syntax: FatalOnSyntaxError=<boolean value>
+  linux: true
+  windows: true
+  default: true
+  since: 4.11.3.2
+  description:
+  - true = (default) If a syntax error occurs, then the script execution will be stopped and the script result will be set to failed. Also, the message Syntax Error will be passed to the opsi-server.
+  - false = If a syntax error occurs, then the script execution will not be stopped and the script result will be set to success.
+
+isSuccess:
+  syntax: isSuccess
+  since: 4.11.3.7
+  windows: true
+  linux: true
+  description:
+    - Abort the script as successful.
+
+noUpdateScript:
+  syntax: noUpdateScript
+  since: 4.11.3.7
+  windows: true
+  linux: true
+  description:
+    - Do not run a update script after setup even if there is one.
