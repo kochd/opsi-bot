@@ -27,9 +27,42 @@ ExitOnError:
   default: false
   linux: true
   windows: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-errors'
   description:
     - This statement defines if the script execution shall terminate when an error occurs.
     - If the value is true or yes the program will stop execution, otherwise errors are just logged
+
+TraceMode:
+  syntax: TraceMode=<boolean value>
+  default: false
+  linux: true
+  windows: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-errors'
+  description:
+    - In TraceMode (default false) every log file entry will additionally be shown in message window with an O.K. button.
+
+ScriptErrorMessages:
+  syntax: ScriptErrorMessages=<boolean value>
+  default: true
+  linux: true
+  windows: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-errors'
+  description:
+    - If the value is true (default), syntactical errors trigger a pop up window with some informations on the error.
+    - The boolean value may be true or false. Delimiters on or off can be used as well.
+
+FatalOnRuntimeError:
+  syntax: FatalOnRuntimeError=<boolean value>
+  linux: true
+  windows: true
+  default: false
+  since: 4.11.3.2
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-errors'
+  description:
+    - A Runtime Error is an script logic error that leads toan forbidden or impossible operation. An Example: You try to get the 5th string from a string list that have only 3 elements.
+    - true = If a runtime error occurs, then the script execution will be stopped and the script result will be set to failed. Also, the message Runtime Error will be passed to the opsi-server.
+    - false = (default) If a runtime error occurs, then the script execution will not be stopped and the script result will be set to success. The runtime error will be logged as Error and the error counter will be increased by 1.
+    - There two configuration options for execution errors ExitOnError and TraceMode
 
 FatalOnSyntaxError:
   syntax: FatalOnSyntaxError=<boolean value>
@@ -37,9 +70,44 @@ FatalOnSyntaxError:
   windows: true
   default: true
   since: 4.11.3.2
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-errors'
   description:
   - true = (default) If a syntax error occurs, then the script execution will be stopped and the script result will be set to failed. Also, the message Syntax Error will be passed to the opsi-server.
   - false = If a syntax error occurs, then the script execution will not be stopped and the script result will be set to success.
+
+AutoActivityDisplay:
+  syntax: AutoActivityDisplay=<boolean value>
+  linux: true
+  windows: true
+  default: false
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-params-showmode'
+  description:
+    - If true shows a marquee (endless) progressbar while winbatch/dosbatch sections are running. //since 4.11.4.7
+
+Message:
+  syntax: Message <string> or Message=<const string>
+  linux: true
+  windows: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-commands-information'
+  description:
+    - Lets opsi-winst/opsi-script display the value of the String expression resp. the sequence of chars in the batch window in the top information line. The text is kept as long as no new message is set.
+
+ShowMessageFile:
+  syntax:
+  linux: true
+  windows: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-commands-information'
+  description:
+    - Interprets the String expression as text file name, tries to read the text and show it in a user information window. Execution stops until the user confirms reading.
+
+ShowBitMap:
+  syntax: ShowBitMap [<image name>] [<inscription>]
+  linux: true
+  windows: true
+  link: 'https://download.uib.de/opsi_stable/doc/html/en/opsi-winst-manual/opsi-winst-manual.html#opsi-winst-commands-information'
+  description:
+    - Places the image denoted by the <image name> (in BMP, JPEG or PNG format, size 160x160 pixel) and shows the inscription.
+    - <image name> and <inscription> are String expressions.
 
 isSuccess:
   syntax: isSuccess
