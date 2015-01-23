@@ -5,7 +5,7 @@ nick = "opsi-bot-#{rand(1..9999)}"
 bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
-    c.channels = ["#test123"]
+    c.channels = ["#opsi-bot-test", "#opsi"]
     c.nick = nick
   end
 
